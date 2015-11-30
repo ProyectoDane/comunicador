@@ -1,2 +1,2 @@
-C:\Users\Nadia\Dropbox\Programacion\comunicador\platforms\android\cordovalib\ant-build\AndroidManifest.xml : \
-C:\Users\Nadia\Dropbox\Programacion\comunicador\platforms\android\cordovalib\AndroidManifest.xml \
+/home/user/workspace/comunicador/platforms/android/cordovalib/ant-build/AndroidManifest.xml : \
+/home/user/workspace/comunicador/platforms/android/cordovalib/AndroidManifest.xml \

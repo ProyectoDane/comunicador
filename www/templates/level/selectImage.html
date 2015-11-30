@@ -1,0 +1,53 @@
+<form novalidate>
+  <ion-view title='NIVEL {{levelNumber}}'>
+
+    <ion-nav-buttons side='right'>
+      <a ng-click='ask()' class='button button-icon icon ask-icon'></a>
+	    <div ng-click='startLevel()' class='start-level3' ng-if="!select.levelStarted">
+	    </div>
+    </ion-nav-buttons>
+
+    <ion-content class='has-header'>
+
+      <div class="row" ng-if="!select.levelStarted && !categoryEnabled">
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="app.levelCards3({ levelNumber: {{levelNumber}}, select: 'A', levelInfo: {{levelInfo}} })">
+		        <img ng-src='{{select.imgSrcA}}'>
+		      </div>
+            </div>
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="app.levelCards3({ levelNumber: {{levelNumber}}, select: 'B', levelInfo: {{levelInfo}} })">
+		        <img ng-src='{{select.imgSrcB}}'>
+		      </div>
+            </div>
+      </div>
+
+      <div class="row" ng-if="!select.levelStarted && categoryEnabled">
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="app.categories3({ levelNumber: {{levelNumber}}, select: 'A', levelInfo: {{levelInfo}} })">
+		        <img ng-src='{{select.imgSrcA}}'>
+		      </div>
+            </div>
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="app.categories3({ levelNumber: {{levelNumber}}, select: 'B', levelInfo: {{levelInfo}} })">
+		        <img ng-src='{{select.imgSrcB}}'>
+		      </div>
+            </div>
+      </div>
+
+      <div class="row" ng-if="select.levelStarted">
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="content.levelSingleCard({ id: {{select.imgIdA}}, idN: {{select.imgIdB}} })">
+		        <img ng-src='{{select.imgSrcA}}'>
+		      </div>
+            </div>
+            <div class="col col-50">
+		      <div class='item item-image' ui-sref="content.levelSingleCard({ id: {{select.imgIdB}}, idN: {{select.imgIdA}} })">
+		        <img ng-src='{{select.imgSrcB}}'>
+		      </div>
+            </div>
+      </div>
+  
+    </ion-content>
+  </ion-view>
+</form>

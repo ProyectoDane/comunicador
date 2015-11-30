@@ -1,0 +1,72 @@
+<form name="registryForm" novalidate>
+<ion-view title='NIVEL 2'>
+  <ion-nav-buttons side='right'>
+    <a ng-click='ask()' class='button button-icon icon ask-icon'></a>
+  </ion-nav-buttons>
+  <ion-content class='has-header' delegate-handle="resetScroll">
+    <div class="list list-inset registry">
+      <label class="item item-input">
+      <div class="input-label">
+            RECEPTOR: <font color="#FFF">{{registry.receiver.name + " " + registry.receiver.lastName}}</font>
+      </div>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <div class="input-label">
+          DESPLAZAMIENTO DE LA PERSONA:
+        </div>
+        <input type="text" style="display: none;" name="reachReceiver" validator="required" ng-model="registry.reachReceiver">
+        <div class="button-bar">
+          <a class="button" ng-class="{'button-positive': isScore('reachReceiver', 'withHelp')}" ng-click="changeScore('reachReceiver', 'withHelp')">Ayuda total</a>
+          <a class="button" ng-class="{'button-positive': isScore('reachReceiver', 'withPartialHelp')}" ng-click="changeScore('reachReceiver', 'withPartialHelp')">Ayuda parcial</a>
+          <a class="button" ng-class="{'button-positive': isScore('reachReceiver', 'withoutHelp')}" ng-click="changeScore('reachReceiver', 'withoutHelp')">Sin ayuda</a>
+        </div>
+      </label>
+      <label class="item item-input">
+        <div class="input-label">
+          DISTANCIA AL RECEPTOR:
+        </div>
+      <ion-radio name="registry.distanceToReceiver" ng-repeat="item in distancesList" ng-value="item.value" 
+             ng-model="registry.distanceToReceiver"> {{ item.text }}
+      </ion-radio>
+      </label>
+      <label class="item item-input item-toggle">
+        <div class="input-label">
+        CONTACTO OCULAR:
+        </div>
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="registry.eyeContact">
+          <div class="track">
+            <div class="handle">{{registry.eyeContact? 'SÍ': 'NO'}}</div>
+          </div>
+        </label>
+      </label>
+      <label class="item item-input item-toggle">
+        <div class="input-label">
+        EXPRESIÓN FACIAL:
+        </div>
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="registry.facialExpression">
+          <div class="track">
+            <div class="handle">{{registry.facialExpression? 'SÍ': 'NO'}}</div>
+          </div>
+        </label>
+      </label>
+      <label class="item item-input">
+        <div class="input-label">
+         EMISIÓN ORAL:
+        </div>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'7'">Ninguna expresión</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'8'">Llanto</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'13'">Risa</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'9'">Vocal/consonante</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'10'">Sílaba</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'11'">Palabra no representativa de la imagen entregada</ion-radio>
+        <ion-radio name="oralOutput" ng-model="registry.oralOutput" ng-value="'12'">Palabra representativa de la imagen entregada</ion-radio>
+      </label>
+        <div class='form-buttons'>
+        <a id='accept' validation-submit="registryForm" class='button padding-right button-positive button-block' ng-click='saveRegistry();'>Aceptar</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+</form>
